@@ -8,6 +8,91 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <Pivot x:Name="SacnetPivot" Title="sacnet" >
+            <PivotItem Header="menu">
+                <Grid>
+                    <StackPanel HorizontalAlignment="Left" Margin="12" VerticalAlignment="Top">
+                        <ItemsControl Margin="12,12,12,12">
+                            <Button Background="{x:Null}" Content="Energia" Margin="0,12,0,0" BorderBrush="{x:Null}" Click="Button_Click_1"/>
+                            <Button Background="{x:Null}" Content="Telecomunicações" Margin="0,12,0,0" BorderBrush="{x:Null}" Click="Button_Click_2"/>
+                        </ItemsControl>
+                    </StackPanel>
+                </Grid>
+            </PivotItem>
+            <PivotItem Header="configurações">
+                <Grid>
+                    <StackPanel Margin="12">
+                        <ItemsControl>
+                            <ToggleSwitch x:Name="ToggleSimulador" Header="Modo Simulação" Margin="12"/>
+                        </ItemsControl>
+                    </StackPanel>
+                </Grid>
+            </PivotItem>
+            <PivotItem x:Name="PivotItemContas"  Header="contas">
+                <Grid>
+                    <FlipView x:Name="FlipviewContas"  Margin="12,12,0,0" Background="{x:Null}">
+                        <FlipViewItem x:Name="FlipViewItemContasLogins">
+                            <StackPanel Margin="12">
+                                <ItemsControl>
+                                    <ToggleSwitch x:Name="twitteronoff" Header="Twitter" Toggled="ToggleSwitch_Toggled" />
+                                    <TextBox x:Name="usuariotwitter" AcceptsReturn="false" PlaceholderText="usuário twitter" ToolTipService.ToolTip="insira aqui o nome de usuário twitter" Width="216" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+                                    <PasswordBox x:Name="senhatwitter" PlaceholderText="senha" ToolTipService.ToolTip="insira aqui a senha da conta twitter" Width="216" HorizontalAlignment="Left" VerticalAlignment="Top"></PasswordBox>
+                                    <ToggleSwitch Header="Facebook" IsEnabled="False" Margin="0,12,0,0"/>
+                                </ItemsControl>
+                            </StackPanel>
+                        </FlipViewItem>
+                        <FlipViewItem x:Name="FlipViewItemContas" >
+                            <StackPanel>
+                                <ItemsControl>
+                                    <TextBlock Text="Light"></TextBlock>
+                                    <TextBox x:Name="lightrjinstcode" PlaceholderText="Código da instalação" InputScope="Number" ToolTipService.ToolTip="Insira aqui o código da instalação que vem na sua conta Light" AcceptsReturn="False" IsSpellCheckEnabled="False" IsTextPredictionEnabled="False" Width="216" HorizontalAlignment="Left" VerticalAlignment="Top" MaxLength="10" Margin="0,12,0,0"/>
+                                    <Button x:Name="Prosseguir" Content="Prosseguir" Click="Button_Click_3" IsEnabled="False" Visibility="Collapsed" />
+                                </ItemsControl>
+                            </StackPanel>
+                        </FlipViewItem>
+                    </FlipView>
+                </Grid>
+            </PivotItem>
+            <PivotItem x:Name="PivotItemEnergia" Header="energia" >
+                <Grid>
+                    <TextBlock Text="Falta de energia" Margin="12,12,0,0" FontSize="16"></TextBlock>
+                    
+                    <FlipView x:Name="FlipEnergia" Margin="12,48,0,0" Background="{x:Null}">
+                        <FlipViewItem x:Name="FlipEnergiaMenu">
+                            <StackPanel>
+                                <ItemsControl>
+                                    <Button x:Name="Notificar" BorderBrush="Gray" Background="{x:Null}" Content="Notificar" Click="Button_Click"/>
+                                </ItemsControl>
+                            </StackPanel>
+                        </FlipViewItem>
+                        <FlipViewItem x:Name="FlipEnergiaStatus">
+                            <StackPanel>
+                                <ItemsControl>
+                                    <TextBlock x:Name="StatusEnergia" Text="Status"/>
+                                    <ProgressRing x:Name="StatusEnergiaProgress" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,12,0,0"></ProgressRing>
+                                </ItemsControl>
+                            </StackPanel>
+                        </FlipViewItem>
+                    </FlipView>
+                    
+                </Grid>
+            </PivotItem>
+            <PivotItem x:Name="PivotItemTelecom" Header="telecomunicações" >
+                <Grid>
+                    <FlipView x:Name="FlipTelecom" Margin="12,12,0,0" Background="{x:Null}">
+                        <StackPanel>
+                            <ItemsControl>
+                                <TextBlock Text="Selecione a operadora:"></TextBlock>
+                                <!--<Button BorderBrush="{x:Null}" Background="{x:Null}" Content="OI" IsEnabled="False"/>-->
+                                <!--<Button BorderBrush="{x:Null}" Background="{x:Null}" Content="TIM"/>-->
+                                <Button BorderBrush="{x:Null}" Background="{x:Null}" Content="VIVO"/>
+                                <!--<Button BorderBrush="{x:Null}" Background="{x:Null}" Content="CLARO" IsEnabled="False"/>
+                                <Button BorderBrush="{x:Null}" Background="{x:Null}" Content="NEXTEL" IsEnabled="False"/>-->
+                            </ItemsControl>
+                        </StackPanel>
+                    </FlipView>
+                </Grid>
+            </PivotItem>
+        </Pivot>
     </Grid>
 </Page>
